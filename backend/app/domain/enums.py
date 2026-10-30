@@ -1,0 +1,65 @@
+from enum import Enum
+
+
+class CasePhase(str, Enum):
+    IDLE = "IDLE"
+    IN = "IN"
+    INDUCTION = "INDUCTION"
+    INCISION = "INCISION"
+    CLOSURE = "CLOSURE"
+    OUT = "OUT"
+    CLEANING = "CLEANING"
+    COMPLETE = "COMPLETE"
+    CANCELLED = "CANCELLED"
+
+
+class CaseType(str, Enum):
+    SCHEDULED = "SCHEDULED"
+    URGENT = "URGENT"
+    ADDON = "ADDON"
+
+
+class RoomStatus(str, Enum):
+    AVAILABLE = "AVAILABLE"
+    IN_USE = "IN_USE"
+
+
+class AlertLevel(str, Enum):
+    NONE = "NONE"
+    WARNING = "WARNING"
+    CRITICAL = "CRITICAL"
+
+
+class ScreenTimingStatus(str, Enum):
+    SCHEDULED = "SCHEDULED"
+    IN_PROGRESS = "IN_PROGRESS"
+    NEAR_END = "NEAR_END"
+    OVERRUN = "OVERRUN"
+    CRITICAL_OVERRUN = "CRITICAL_OVERRUN"
+    COMPLETE = "COMPLETE"
+    IDLE = "IDLE"
+
+
+class InputSource(str, Enum):
+    VOICE = "VOICE"
+    BUTTON = "BUTTON"
+    SYSTEM = "SYSTEM"
+    IMPORT = "IMPORT"
+
+
+class TransitionOutcome(str, Enum):
+    ACCEPTED = "ACCEPTED"
+    REVIEW = "REVIEW"
+    REJECTED = "REJECTED"
+    DUPLICATE = "DUPLICATE"
+
+
+class DelayReasonCode(str, Enum):
+    INSTRUMENTS_NOT_READY = "INSTRUMENTS_NOT_READY"
+    PATIENT_NOT_READY = "PATIENT_NOT_READY"
+    ANESTHESIA_DELAY = "ANESTHESIA_DELAY"
+    STAFFING_SHORTAGE = "STAFFING_SHORTAGE"
+    SURGEON_LATE = "SURGEON_LATE"
+    EQUIPMENT_ISSUE = "EQUIPMENT_ISSUE"
+    PREVIOUS_CASE_OVERRUN = "PREVIOUS_CASE_OVERRUN"
+    OTHER = "OTHER"

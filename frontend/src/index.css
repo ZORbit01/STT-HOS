@@ -1,0 +1,111 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/inter/800.css";
+@import "@fontsource/inter/900.css";
+@import "tailwindcss";
+
+@theme {
+  --color-surface-DEFAULT: #FFFFFF;
+  --color-surface-muted:   #F8FAFC;
+  --color-surface-border:  #E2E8F0;
+
+  --color-brand-900: #0F2044;
+  --color-brand-700: #1A3A6B;
+  --color-brand-500: #1D4ED8;
+  --color-brand-100: #EFF6FF;
+}
+
+* { box-sizing: border-box; }
+
+:root {
+  --app-nav-height: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  :root { --app-nav-height: 2.5rem; }
+}
+
+@media (min-width: 768px) and (hover: hover) and (pointer: fine) {
+  :root.display-nav-overlay { --app-nav-height: 0rem; }
+
+  :root.display-nav-overlay:has(.display-auto-hide-nav:not([data-autohide-hidden="true"])) {
+    --app-nav-height: 2.5rem;
+  }
+
+  :root.display-nav-overlay .app-route-content {
+    padding-top: var(--app-nav-height);
+    transition: padding-top 180ms ease;
+  }
+
+  .display-auto-hide-nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    width: 100%;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .display-auto-hide-nav:not([data-autohide-hidden="true"]) {
+    box-shadow: 0 8px 24px rgb(15 32 68 / 18%);
+  }
+
+  .display-auto-hide-nav[data-autohide-hidden="true"] {
+    transform: translateY(-100%);
+  }
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: #0f2044;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #ffffff;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  min-width: 320px;
+  min-height: 100dvh;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#root { min-height: 100dvh; }
+
+button, a { touch-action: manipulation; }
+
+.touch-voice-dock { display: none; }
+
+.phase-hold-progress {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: phase-hold-fill 1s linear forwards;
+}
+
+@keyframes phase-hold-fill {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (max-width: 1023px), (hover: none) and (pointer: coarse) {
+  .touch-voice-dock { display: flex; }
+  .touch-dock-alternative { display: none; }
+  .nurse-console-scroll { padding-bottom: calc(7rem + env(safe-area-inset-bottom)); }
+}
+
+@media (display-mode: standalone) {
+  :root { --app-nav-height: calc(3.5rem + env(safe-area-inset-top)); }
+  body { user-select: none; }
+  input, textarea { user-select: text; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

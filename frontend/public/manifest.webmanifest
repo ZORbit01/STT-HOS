@@ -1,0 +1,36 @@
+{
+  "id": "/",
+  "name": "ORTrack Nurse",
+  "short_name": "ORTrack",
+  "description": "Operating-room case tracking and nurse voice controls.",
+  "start_url": "/control",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#F8FAFC",
+  "theme_color": "#0F2044",
+  "categories": ["medical", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/ortrack.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/ortrack-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Mic client",
+      "short_name": "Mic",
+      "url": "/control",
+      "icons": [{ "src": "/icons/ortrack.svg", "sizes": "any", "type": "image/svg+xml" }]
+    }
+  ]
+}

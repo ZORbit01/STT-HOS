@@ -1,0 +1,1 @@
+"""Vosk-specific STT helpers."""
